@@ -8,9 +8,10 @@ const FILE_COPY_PATH = getFilePath(import.meta.url, "files-copy");
 
 const copy = async () => {
   // Write your code here
+  const isExistFileCopy = await isExist(FILE_COPY_PATH);
   const isExistFile = await isExist(FILE_COPY_PATH);
 
-  if (isExistFile) {
+  if (!isExistFile || isExistFileCopy) {
     throw new Error(ERROR_MESSAGE);
   }
 
